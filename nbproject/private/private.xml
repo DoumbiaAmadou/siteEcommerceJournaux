@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/wamp64/www/journal/app/config/security.yml</file>
+            <file>file:/C:/wamp64/www/journal/app/SymfonyRequirements.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/JournalController.php</file>
+            <file>file:/C:/wamp64/www/journal/app/config/config.yml</file>
+            <file>file:/C:/wamp64/www/journal/app/config/parameters.yml.dist</file>
+            <file>file:/C:/wamp64/www/journal/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/config/parameters.yml</file>
+            <file>file:/C:/wamp64/www/journal/app/config/config_prod.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Default/produits.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/config/routing.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/ProduitsController.php</file>
+            <file>file:/C:/wamp64/www/journal/app/AppCache.php</file>
+            <file>file:/C:/wamp64/www/journal/app/config/config_dev.yml</file>
+            <file>file:/C:/wamp64/www/journal/app/AppKernel.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp64/www/journal/app/Resources/views/default/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/autoload.php</file>
+            <file>file:/C:/wamp64/www/journal/app/config/routing_dev.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/PanierController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/journalBundle.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/services.yml</file>
+        </group>
+    </open-files>
+</project-private>

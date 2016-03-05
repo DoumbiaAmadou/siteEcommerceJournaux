@@ -1,0 +1,12 @@
+utilisateur:
+    resource: "@UtilisateurBundle/Resources/config/routing.yml"
+    prefix:   /
+
+pages:
+    resource: "@PagesBundle/Resources/config/routing.yml"
+    prefix:   /
+
+journal:
+    resource: "@journalBundle/Resources/config/routing.yml"
+    prefix:   /
+

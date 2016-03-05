@@ -1,0 +1,14 @@
+{%dump(produits)%}
+
+{%for produit in produits %}
+
+<section>
+<ul>
+<li>{{produit.nom}}</li>  
+<li>{{produit.prix}}</li>  
+<li>{{produit.categorie}}</li>  
+<li>{{produit.tva}}</li>  
+<li>{{produit.nom}}</li>  
+</ul>
+<section> 
+{%endfor%}
