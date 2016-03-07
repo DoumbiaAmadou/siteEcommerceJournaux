@@ -1,6 +1,4 @@
-utilisateur_homepage:
-    path:     /
-    defaults: { _controller: UtilisateurBundle:Default:index }
+
 form:
     path:     /form
     defaults: { _controller: UtilisateurBundle:Default:testformulaire }

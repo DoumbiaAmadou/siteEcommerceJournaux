@@ -22,7 +22,7 @@ class Produits
     private $id;
 
    /**
-     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\categorie",cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\Categorie",cascade={"persist","remove"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
@@ -172,10 +172,10 @@ class Produits
     /**
      * Set categorie
      *
-     * @param \journalBundle\Entity\categorie $categorie
+     * @param \journalBundle\Entity\Categorie $categorie
      * @return Produits
      */
-    public function setCategorie(\journalBundle\Entity\categorie $categorie)
+    public function setCategorie(\journalBundle\Entity\Categorie $categorie)
     {
         $this->categorie = $categorie;
 

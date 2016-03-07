@@ -12,4 +12,14 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProduitsRepository extends EntityRepository
 {
+    
+    public function  findByCategorie($categorie){
+        $querybuilder = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.categorie = :categorie')
+                ->orderBy('p.id')
+                ->setParameter('categorie', $categorie);
+                return $querybuilder->getQuery()->getResult(); 
+        
+    } 
 }

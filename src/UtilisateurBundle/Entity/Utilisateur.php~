@@ -75,37 +75,4 @@ class Utilisateur extends BaseUser
     }
 
 
-
-    /**
-     * Add utilisateursAdresses
-     *
-     * @param \journalBundle\Entity\UtilisateursAdresses $utilisateursAdresses
-     * @return Utilisateur
-     */
-    public function addUtilisateursAdress(\journalBundle\Entity\UtilisateursAdresses $utilisateursAdresses)
-    {
-        $this->utilisateursAdresses[] = $utilisateursAdresses;
-
-        return $this;
-    }
-
-    /**
-     * Remove utilisateursAdresses
-     *
-     * @param \journalBundle\Entity\UtilisateursAdresses $utilisateursAdresses
-     */
-    public function removeUtilisateursAdress(\journalBundle\Entity\UtilisateursAdresses $utilisateursAdresses)
-    {
-        $this->utilisateursAdresses->removeElement($utilisateursAdresses);
-    }
-
-    /**
-     * Get utilisateursAdresses
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getUtilisateursAdresses()
-    {
-        return $this->utilisateursAdresses;
-    }
 }

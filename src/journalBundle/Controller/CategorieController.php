@@ -1,16 +1,16 @@
 <?php
 
-namespace PagesBundle\Controller;
+namespace journalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-class PagesController extends Controller {
+class CategorieController extends Controller {
 
     public function menuAction() {
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository('PagesBundle:Pages')->findAll();
+        $pages = $em->getRepository('journalBundle:categorie')->findAll();
 
-        return $this->render('PagesBundle:Default/pages/modulesUsed/menu.html.twig', array('pages' => $pages));
+        return $this->render('journalBundle:Default/categorie/modulesUsed/menu.html.twig', array('categories' => $pages));
     }
 
     public function pagesAction($id) {

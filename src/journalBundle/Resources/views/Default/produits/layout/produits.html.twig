@@ -5,15 +5,16 @@
         {% include ':modules/navigation.html.twig' %}
         <div class="span9" > 
                 <ul class="thumbnails">
-                  {% for i in 1 .. 10 %}    
+                  {% for produit in Produits %}    
                     <li class="span3">
                             <div class="thumbnail">
-                            <img src="{{asset('img/holder.png')}}" alt="DevAndClick" width="300" height="300">
+                            <img src="{{asset(produit.image.path)}}" alt="{{produit.image.alt}}" width="300" height="150">
                                 <div class="caption">
-                                <h4>Thumbnail label</h4>
-                                <p>100,00 €</p>
-                                <a class="btn btn-primary" href="produit.php">Plus d'infos</a>
-                                <a class="btn btn-success" href="{{path('panier')}}">Ajouter au panier</a>
+                                <h4>{{produit.nom}}</h4>
+                                <h5>{{ produit.categorie.nom }}</h5>
+                                <p>{{produit.prix}} F CFA</p>
+                                <a class="btn btn-primary" href="{{path('produit' , {'id':produit.id}) }}">Plus d'infos</a>
+                                <a class="btn btn-success" href="">Ajouter au panier</a>
                                 </div>
                             </div>
                     </li> 

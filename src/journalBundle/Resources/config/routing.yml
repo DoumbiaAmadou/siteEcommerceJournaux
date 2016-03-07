@@ -6,7 +6,7 @@ accueil:
     defaults: { _controller: journalBundle:Produits:presentation }
     
 produit:
-    path:     /produit
+    path:     /produit/{id}
     defaults: { _controller: journalBundle:Produits:produit }
 
 produits:
@@ -22,3 +22,7 @@ validation:
 test:
     path:     /test
     defaults: { _controller: journalBundle:Testproduits:ajout }
+    
+CategorieProduits:
+    path:     /Categorie/{categorie}
+    defaults: { _controller: journalBundle:Produits:categorie }
