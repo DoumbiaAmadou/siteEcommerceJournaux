@@ -32,7 +32,7 @@ class UtilisateurMedia extends AbstractFixture implements OrderedFixtureInterfac
         $media2->setEmail("karamoko14@hotmail.fr");
         $media2->setEnabled(true);
         $media2->setPassword($this->container->get('security.encoder_factory')
-                ->getEncoder($media1)
+                ->getEncoder($media2)
                 ->encodePassword('karamoko',$media2->getSalt()));
         
         $manager->persist($media2);

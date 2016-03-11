@@ -1,0 +1,11 @@
+panier:
+    path:     /panier
+    defaults: { _controller: journalBundle:Panier:panier }
+
+livraison:
+    path:     /livraison
+    defaults: { _controller: journalBundle:Panier:livraison }
+validation:
+    path:     /validation
+    defaults: { _controller: journalBundle:Panier:validation }
+

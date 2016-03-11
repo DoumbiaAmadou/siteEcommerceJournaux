@@ -1,0 +1,23 @@
+
+accueil:
+    path:     /
+    defaults: { _controller: journalBundle:Produits:presentation }
+    
+produit:
+    path:     /produit/{id}
+    defaults: { _controller: journalBundle:Produits:produit }
+
+produits:
+    path:     /produits
+    defaults: { _controller: journalBundle:Produits:presentation }
+test:
+    path:     /test
+    defaults: { _controller: journalBundle:Testproduits:ajout }
+    
+CategorieProduits:
+    path:     /Categorie/{categorie}
+    defaults: { _controller: journalBundle:Produits:categorie }
+
+rechercheProduits:
+    path:     /recherche/
+    defaults: { _controller: journalBundle:Produits:rechercheTraitement }

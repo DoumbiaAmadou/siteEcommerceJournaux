@@ -3,6 +3,8 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %} Site de Vente de Journaux{% endblock %}</title>
+        <meta name="description" content="{% block desciption %} {% endblock %}"></meta>
+        <meta name="keywords" content="{% block keywords %} {% endblock %}"></meta>
         <link rel="stylesheet" href="{{asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.css')}}" />
         <link rel="stylesheet" href="{{asset('css/style.css') }}" />
@@ -22,10 +24,8 @@
                 </button>
                 <a class="brand" href="{{path('produits')}}">Site de Vente de journaux</a>
                 <div class="nav-collapse collapse">
-                    <form class="navbar-form form-search pull-right">
-                        <input id="Search" name="Search" type="text" class="input-medium search-query">
-                        <button type="submit" class="btn">Rechercher</button>
-                    </form>
+                    {% render(controller('journalBundle:Produits:recherche'))%}
+                    
                 </div>
             </div>
         </div>
@@ -38,7 +38,7 @@
 <footer id="footer" class="vspace20">
     <div class="container">
         <div class="row">
-            <div class="span4 offset1">
+            <div class="span3 offset1">
                 <h4>Informations</h4>
                 <ul class="nav nav-stacked">
                     {% render(controller('PagesBundle:Pages:menu')) %}
@@ -48,19 +48,19 @@
 
             <div class="span4">
                 <h4>Notre entrepôt</h4>
-                <p><i class="icon-map-marker"></i>&nbsp;Massy  91 300 - 3 rue eric Tabarly</p>
+                <p><i class="icon-map-marker"></i>&nbsp;{{adresse}}</p>
             </div>
 
-            <div class="span2">
+            <div class="span3">
                 <h4>Nous contacter</h4>
-                <p><i class="icon-phone"></i>&nbsp;Tel: 00 00 00 00 00</p>
-                <p><i class="icon-print"></i>&nbsp;Fax: 00 00 00 00 00</p>
+                <p><i class="icon-phone"></i>&nbsp;Tel: {{telephone}}</p>
+                <p><i class="icon-print"></i>&nbsp;Fax: {{fax}}</p>
             </div>
         </div>
 
         <div class="row">
             <div class="span4">
-                <p>&copy; Copyright 2014 - Doumbia Amadou</p>
+                <p>&copy; Copyright {{"now"|date("Y")}} - {{propriteur}}</p>
             </div>
         </div>
     </div>

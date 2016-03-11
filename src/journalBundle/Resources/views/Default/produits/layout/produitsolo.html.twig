@@ -1,4 +1,7 @@
 {% extends "::layout/layout.html.twig" %}
+ {% block title %} {{ Produit.nom }}{% endblock %}
+{% block desciption %}{{ Produit.description }} {% endblock %}      
+
 {%block body %}
 <div class="container">
     <div class="row">
@@ -14,7 +17,7 @@
                     <h4>{{ Produit.nom }}</h4>
                     <h5>{{ Produit.categorie.nom }}</h5>
                     <p>{{ Produit.description }}</p>
-                    <h4{{ Produit.prix }} € </h4>
+                    <h4{{ Produit.prix|tva(Produit.tva.multiplication)}} {{ devise }}</h4>
                     <form action="panier.php">
 
 

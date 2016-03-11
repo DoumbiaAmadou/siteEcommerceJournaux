@@ -1,28 +1,9 @@
-panier:
-    path:     /panier
-    defaults: { _controller: journalBundle:Panier:panier }
-accueil:
-    path:     /
-    defaults: { _controller: journalBundle:Produits:presentation }
-    
-produit:
-    path:     /produit/{id}
-    defaults: { _controller: journalBundle:Produits:produit }
+routingPanier:
+    resource: "@journalBundle/Resources/config/rooting/routingPanier.yml"
+    prefix: /
 
-produits:
-    path:     /produits
-    defaults: { _controller: journalBundle:Produits:presentation }
-livraison:
-    path:     /livraison
-    defaults: { _controller: journalBundle:Panier:livraison }
-validation:
-    path:     /validation
-    defaults: { _controller: journalBundle:Panier:validation }
-
-test:
-    path:     /test
-    defaults: { _controller: journalBundle:Testproduits:ajout }
     
-CategorieProduits:
-    path:     /Categorie/{categorie}
-    defaults: { _controller: journalBundle:Produits:categorie }
+routingProduits:
+    resource: "@journalBundle/Resources/config/rooting/routingProduits.yml"
+    prefix: /
+    

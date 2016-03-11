@@ -17,9 +17,20 @@ class ProduitsRepository extends EntityRepository
         $querybuilder = $this->createQueryBuilder('p')
                 ->select('p')
                 ->where('p.categorie = :categorie')
+                ->andWhere('p.disponible = 1')
                 ->orderBy('p.id')
                 ->setParameter('categorie', $categorie);
                 return $querybuilder->getQuery()->getResult(); 
         
     } 
+    public function recherche($chaine){
+        $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.nom like  :chaine')
+                   ->andWhere('p.disponible = 1')
+                ->orderBy('p.id')
+                ->setParameter('chaine','%'.$chaine.'%');
+        
+         return $qb->getQuery()->getResult(); 
+    }
 }
