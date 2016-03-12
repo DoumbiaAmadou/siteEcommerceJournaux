@@ -8,4 +8,9 @@ livraison:
 validation:
     path:     /validation
     defaults: { _controller: journalBundle:Panier:validation }
-
+ajouter :
+    path:     /ajouter/{id}
+    defaults: { _controller: journalBundle:Panier:ajouter }
+supprimer :
+    path:     /supprimer/{id}
+    defaults: { _controller: journalBundle:Panier:supprimer }

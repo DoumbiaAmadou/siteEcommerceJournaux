@@ -11,6 +11,7 @@ class ProduitsController extends Controller
     /**
      * @Route("/", name="homepage")
      */
+
     public function presentationAction (Request $request)
     {
          $em = $this->getDoctrine()->getManager();

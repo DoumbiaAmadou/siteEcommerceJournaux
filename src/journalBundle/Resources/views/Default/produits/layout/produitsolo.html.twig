@@ -9,20 +9,23 @@
 
         <div class="span9">
             <div class="row">
-                <div class="span5">
+                <div class="span6">
                     <img src="{{asset(Produit.image.path)}}" alt="{{asset(Produit.image.alt)}}" width="470" height="260">
                 </div>
 
-                <div class="span4">
+                <div class="span3">
                     <h4>{{ Produit.nom }}</h4>
                     <h5>{{ Produit.categorie.nom }}</h5>
+                    <h4>{{ Produit.prix |tva(Produit.tva.multiplication) |number_format(2, ',', ' ')}} {{ devise }}</h4>
                     <p>{{ Produit.description }}</p>
-                    <h4{{ Produit.prix|tva(Produit.tva.multiplication)}} {{ devise }}</h4>
-                    <form action="panier.php">
+                    
+                    <form action="{{ path('ajouter',{'id' : Produit.id}) }}" methode ="GET" >
 
 
                         <select name="qte" class="span1">
-                            <option>1</option>
+                            {% for i in 1..10 %}
+                            <option value="{{ i }}">{{ i }}</option>
+                            {% endfor %}
                         </select>
 
                         <div>

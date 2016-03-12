@@ -12,7 +12,7 @@ class TvaExtension extends \Twig_Extension
     }
     
     function calculTva($prixNt ,$tva){
-        return number_format( round($prixNt/$tva,3), 2, ',', ' ');
+        return round($prixNt*$tva,2);
     }
     public function getName()
     {

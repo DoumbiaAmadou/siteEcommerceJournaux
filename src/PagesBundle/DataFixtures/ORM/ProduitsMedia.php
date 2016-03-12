@@ -31,7 +31,7 @@ class ProduitsMedia extends AbstractFixture implements OrderedFixtureInterface {
         $media2->setImage($this->getreference("media2"));
         $media2->setCategorie($this->getReference("catmedia2"));
         $media2->setDisponible(1);
-        $media2->setTva($this->getReference("tva1"));
+        $media2->setTva($this->getReference("tva2"));
          $media2->setPrix(600);
         $manager->persist($media2);
       
@@ -41,7 +41,7 @@ class ProduitsMedia extends AbstractFixture implements OrderedFixtureInterface {
         $media3->setImage($this->getreference("media3"));
         $media3->setCategorie($this->getReference("catmedia1"));
         $media3->setDisponible(1);
-        $media3->setTva($this->getReference("tva1"));
+        $media3->setTva($this->getReference("tva2"));
         $media3->setPrix(19000);
         $manager->persist($media3);
       

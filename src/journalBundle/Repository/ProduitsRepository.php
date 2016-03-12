@@ -12,7 +12,13 @@ use Doctrine\ORM\EntityRepository;
  */
 class ProduitsRepository extends EntityRepository
 {
-    
+    public function findArray($Array){
+        $qb = $this->createQueryBuilder('p')
+                ->select('p')
+                ->where('p.id IN (:array)')
+                ->setParameter('array', $Array);
+        return $qb->getQuery()->getResult();
+    }
     public function  findByCategorie($categorie){
         $querybuilder = $this->createQueryBuilder('p')
                 ->select('p')
