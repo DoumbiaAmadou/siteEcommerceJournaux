@@ -11,6 +11,8 @@
                     {% include 'UtilisateurBundle:Default/modulesUsed/utilisateurs.html.twig' %}
 
                 {% endif %}
+                
+                {% render (controller('journalBundle:Panier:menu')) %}
             </div>
             <div class="span9" >
                 {%if Produits|length !=0 %}
@@ -22,7 +24,7 @@
                                     <div class="caption">
                                         <h4>{{produit.nom}}</h4>
                                         <h5>{{ produit.categorie.nom }}</h5>
-                                        <p>{{ produit.prix|tva(produit.tva.multiplication)}} {{ devise }} </p>
+                                        <p>{{ produit.prix|tva(produit.tva.multiplication) |number_format(2, ',', ' ') }} {{ devise }} </p>
                                         
                                         <a class="btn btn-primary" href="{{path('produit' , {'id':produit.id}) }}">Plus d'infos</a>
                                         

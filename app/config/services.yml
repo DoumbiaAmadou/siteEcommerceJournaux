@@ -8,3 +8,9 @@ services:
         class: journalBundle\Twig\Extension\TvaExtension
         tags:
             - { name: twig.extension }
+
+    MontantTVA:
+        class: journalBundle\Twig\Extension\MontantTVAExtension
+        tags:
+            - { name: twig.extension }
+            
