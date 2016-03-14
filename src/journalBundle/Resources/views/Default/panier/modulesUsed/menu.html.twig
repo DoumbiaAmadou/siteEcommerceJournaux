@@ -2,9 +2,9 @@
 <div class="well">
     <ul class="nav nav-list">
         <li class="nav-header">
-            <a href="{{path('panier')}}"> {%if articles ==0%}
+            <a href="{{path('panier')}}"> {% if articles == 0 %}
                 Aucun article dans votre panier! 
-                {%elseif articles == 1 %}
+                {% elseif articles == 1 %}
                     Il y'a un artcle dans votre panier!
                 {%else %}
                     Il y'a {{articles}} articles dans votre panier!

@@ -14,3 +14,8 @@ ajouter :
 supprimer :
     path:     /supprimer/{id}
     defaults: { _controller: journalBundle:Panier:supprimer }
+    
+livraisaonSuppressionAdresse :
+    path:     /livraisaonSuppressionAdresse/{id}
+    defaults: { _controller: journalBundle:Panier:livraisaonSuppressionAdresse }
+    

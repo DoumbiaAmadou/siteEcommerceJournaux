@@ -7,6 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Session\Session;
+use journalBundle\Form\UtilisateursAdressesType; 
+use journalBundle\Entity\UtilisateursAdresses; 
+
 class PanierController extends Controller {
 
      public function menuAction(){
@@ -19,6 +22,19 @@ class PanierController extends Controller {
           
         return $this->render('journalBundle:Default/panier/modulesUsed/menu.html.twig',
                             array('articles' => $articles));
+    }
+    public function livraisaonSuppressionAdresseAction($id){
+        
+        $em = $this->getDoctrine()->getManager();
+        $realUser=  $em->getRepository('journalBundle:UtilisateursAdresses')->find($id);
+        if($this->container->get('security.context')->gettoken()->getUser()!=$realUser->getUtilisateur() || !$realUser ){
+            die();
+            $this->redirect($this->generateUrl('livraison'));
+        }
+       
+        $em->remove($realUser);
+        $em->flush(); 
+        return $this->redirect($this->generateUrl('livraison'));
     }
     public function supprimerAction($id){
         $session = $this->getRequest()->getSession();  
@@ -53,7 +69,7 @@ class PanierController extends Controller {
                 $panier[$id] = 1;
                  $session->getFlashBag()->add('succes' , ' Article  ajouté avec succès' );
            }
-        $session->set('panier', $panier);
+        $this->getRequest()->getSession()->set('panier', $panier);
           
       //  var_dump($panier);
        // die() ; 
@@ -85,13 +101,29 @@ class PanierController extends Controller {
     }
 
     public function livraisonAction() {
-        // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/panier/layout/livraison.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        $user= $this->container->get('security.context')->getToken()->getUser(); 
+        $entite = new UtilisateursAdresses(); 
+        $form = $this->createForm( new UtilisateursAdressesType()  , $entite); 
+        
+        if($this->get('request')->getMethod()=='POST'){
+            $form->handleRequest($this->getRequest()); 
+            if($form->isValid())
+            {
+                $entite->setUtilisateur($user);
+                $em->persist($entite);
+                $em->flush(); 
+                
+                return $this->redirect($this->generateUrl('livraison'));
+            }
+        }
+        return $this->render('journalBundle:Default/panier/layout/livraison.html.twig', 
+                array('utilisateurs' =>  $user,'form'=> $form->createView()) );
     }
 
     public function validationAction() {
         // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/panier/layout/validation.html.twig');
+        return $this->render('journalBundle:Default/panier/layout/validation.html.twig' );
     }
 
 }

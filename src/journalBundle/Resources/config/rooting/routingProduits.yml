@@ -16,7 +16,7 @@ test:
     
 CategorieProduits:
     path:     /Categorie/{categorie}
-    defaults: { _controller: journalBundle:Produits:categorie }
+    defaults: { _controller: journalBundle:Produits:presentation }
 
 rechercheProduits:
     path:     /recherche/

@@ -6,30 +6,52 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use journalBundle\Form\RechercheType ; 
+use journalBundle\Entity\categorie ;
 class ProduitsController extends Controller
 {
     /**
      * @Route("/", name="homepage")
      */
 
-    public function presentationAction (Request $request)
+    public function presentationAction (categorie $categorie =null)
     {
+        //var_dump($categorie);
+       // die();
          $em = $this->getDoctrine()->getManager();
-        $produits = $em->getRepository('journalBundle:Produits')->findBy(array('disponible'=> 1));
-     
-        // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produits));
+         $session = $this->getRequest()->getSession();
+         if ($categorie == null) {
+            $produits = $em->getRepository('journalBundle:Produits')->findBy(array('disponible' => 1));
+        } else {
+            $produits = $em->getRepository('journalBundle:Produits')->findByCategorie($categorie);
+        }
+        if($session->has('panier'))
+        {
+            $panier = $session->get('panier'); 
+        }else 
+             $panier = false ; 
+        if(!$produits) 
+            throw $this->createNotFoundException("Cette pages n'existe pas");
+        
+        return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produits,'panier'=> $panier));
+    
+      
     }
      public function produitAction( $id)
     {
-            $em = $this->getDoctrine()->getManager();
-            $produits = $em->getRepository('journalBundle:Produits')->find($id);
-      if(!$produits)
+        $em = $this->getDoctrine()->getManager();
+        $session = $this->getRequest()->getSession();
+        if (!$session->has('panier')) {
+            $session->set('panier', array());
+        }
+        $panier = $session->get('panier');
+        $produits = $em->getRepository('journalBundle:Produits')->find($id);
+        if(!$produits)
           throw $this->createNotFoundException("Cette pages n'existe pas");
+      
         // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/Produits/layout/produitsolo.html.twig', array('Produit' => $produits));
+        return $this->render('journalBundle:Default/Produits/layout/produitsolo.html.twig', array('Produit' => $produits , 'panier'=>$panier ));
     }
-     public function categorieAction($categorie)
+   /*  public function categorieAction($categorie)
      {
         $em = $this->getDoctrine()->getManager();
         $produits = $em->getRepository('journalBundle:Produits')->findByCategorie($categorie);
@@ -38,7 +60,7 @@ class ProduitsController extends Controller
         
         return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produits));
    
-     }
+     }*/
     public function rechercheAction(){
         
         $form = $this->createForm(new RechercheType());

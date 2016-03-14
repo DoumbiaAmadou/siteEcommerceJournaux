@@ -22,7 +22,7 @@ class UtilisateursAdresses
     private $id;
     
     /**
-     * @ORM\ManyToOne(targetEntity="UtilisateurBundle\Entity\Utilisateur",inversedBy="utilisateurAdresses",cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="UtilisateurBundle\Entity\Utilisateur",inversedBy="utilisateurAdresses")
      * @ORM\JoinColumn(nullable=false)
      */
      private $utilisateur;
@@ -79,7 +79,7 @@ class UtilisateursAdresses
     /**
      * @var string
      *
-     * @ORM\Column(name="complement", type="string", length=255)
+     * @ORM\Column(name="complement", type="string", length=255 ,nullable=true)
      */
     private $complement;
 
