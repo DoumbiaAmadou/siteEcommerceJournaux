@@ -8,7 +8,7 @@
                 <div id="collapseOne" class="accordion-body collapse in">
                     <div class="accordion-inner">
                         <div class="span4">
-                            <form action="{{path('validation')}}">
+                            <form action="{{path('validation')}}" method="POST">
                                 {% if utilisateurs.utilisateursAdresses|length!=0 %}
                                     <h4>Adresse de livraison</h4>
                                     {%for adresse in utilisateurs.utilisateursAdresses%}
@@ -21,7 +21,7 @@
                                     {%endfor%}
                                     <h4>Adresse de facturation</h4>
                                    {%for adresse in utilisateurs.utilisateursAdresses%}
-                                        <input type="radio" name="facturation" id="optionsRadios2" value="option1" checked="">
+                                        <input type="radio" name="facturation" id="optionsRadios2" value="{{adresse.id}}" checked="">
                                         {{adresse.adresse }} {{adresse.cp }} {{adresse.ville }} {{adresse.pays }}&nbsp;
                                         <a href="{{path('livraisaonSuppressionAdresse' , {'id': adresse.id} )}}"><i href="{{path('livraisaonSuppressionAdresse' , {'id': adresse.id} ) }}" class="icon-trash"></i></a>
                                         <br /> &nbsp;&nbsp;&nbsp;&nbsp;{{adresse.nom }} {{adresse.prenom }}
@@ -29,7 +29,7 @@
                                         <br />
 
                                     {%endfor%}
-                                    <button class="btn btn-primary">Valider mes adresses de livraison</button>
+                                    <button class="btn btn-primary" type="submit" >Valider mes adresses de livraison et facturation</button>
                                 {%endif%}
                             </form>
                         </div>

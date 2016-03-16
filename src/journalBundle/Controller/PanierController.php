@@ -86,7 +86,7 @@ class PanierController extends Controller {
 
     public function panierAction() {
 
-        $session = $this->getRequest()->getSession();
+        $session = $this->getRequest()->getSession();  
         if (!$session->has('panier')) {
             $session->set('panier', array());
         }
@@ -120,10 +120,53 @@ class PanierController extends Controller {
         return $this->render('journalBundle:Default/panier/layout/livraison.html.twig', 
                 array('utilisateurs' =>  $user,'form'=> $form->createView()) );
     }
+    public function setLivraisionOnSession(){
+        $session = $this->get('request')->getSession() ; 
+            if(!$session->has('adresse'))
+                $session->set('adresse', array());
+            $adresse = $session->get('adresse'); 
+        
+            if ($this->getRequest()->request->get('livraison') != null 
+                    && $this->getRequest()->request->get('facturation') != null) 
+                {
+                    $adresse['facturation'] = $this->getRequest()->request->get('facturation');
+                    $adresse['livraison'] = $this->getRequest()->request->get('facturation');
+     
+                }
+                else
+                    return $this->redirect ($this->generateUrl ('validation'));
+        
+        $session->set('adresse',$adresse);
+        return $this->redirect($this->generateUrl('validation'));
+        
+    }
 
     public function validationAction() {
-        // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/panier/layout/validation.html.twig' );
+       $em = $this->getDoctrine()->getManager();
+       
+       if ($this->get('request')->getMethod() == 'POST') {
+            $this->setLivraisionOnSession();
+        }
+
+        $prepareCommande = $this->forward('journalBundle:Commandes:prepareCommande');
+       $commande = $em->getRepository('journalBundle:Commandes')->find($prepareCommande->getContent());
+       
+       
+       $em= $this->getDoctrine()->getManager();  
+       $session = $this->getRequest()->getSession(); 
+       $adresse = $session->get('adresse');
+     /*  
+       $produits = $em->getRepository('journalBundle:Produits')->findArray(array_keys($session->get('panier')));
+       $livraison = $em->getRepository('journalBundle:UtilisateursAdresses')->find($adresse['livraison']);
+       $facturation = $em->getRepository('journalBundle:UtilisateursAdresses')->find($adresse['facturation']);
+        */
+       
+
+   
+       return $this->render('journalBundle:Default/panier/layout/validation.html.twig' ,
+             array('Commande'=>$commande));
+    
+       
     }
 
 }
