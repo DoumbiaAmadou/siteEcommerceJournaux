@@ -1,0 +1,4 @@
+
+validationCommande :
+    path:     /validationpayement/{id}
+    defaults: { _controller: journalBundle:Panier:validationPayement }

@@ -15,6 +15,14 @@
                 {% render (controller('journalBundle:Panier:menu')) %}
             </div>
             <div class="span9" >
+          
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }} ">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
                 {%if Produits|length !=0 %}
                     <ul class="thumbnails">
                         {% for produit in Produits %}    
@@ -35,16 +43,9 @@
                         {% endfor %} 
                     </ul>
                     <div class="pagination">
-                        <ul>
-                            <li class="disabled"><span>Précédent</span></li>
-                            <li class="disabled"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">Suivant</a></li>
-                        </ul>
+                    {{ knp_pagination_render(Produits) }}
                     </div>
+                   
                 {% else %}
                     <div class="alert alert-info" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>

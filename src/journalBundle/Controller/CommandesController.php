@@ -24,6 +24,7 @@ class CommandesController extends Controller {
         $commande = array(); 
         $totalHT = 0 ; 
         $totalTTC = 0 ; 
+     
         
         $facturation = $em->getRepository('journalBundle:UtilisateursAdresses')->find($adresse['facturation']);
         $livraison = $em->getRepository('journalBundle:UtilisateursAdresses')->find($adresse['livraison']);
@@ -31,19 +32,19 @@ class CommandesController extends Controller {
         
         foreach ($produits as $produit  ){
             $prixHT = ($produit->getPrix() *$panier[$produit->getId()] );
-            $prixTTC =( ($produit->getPrix()*$panier[$produit->getId()]*$panier[$produit->getId()] )*$produit->getTva()->getMultiplication() );
+            $prixTTC =( ($produit->getPrix()*$panier[$produit->getId()] )*$produit->getTva()->getMultiplication() );
             $totalHT += $prixHT;
             $totalTTC +=$prixTTC ;
             if(!isset($commande['tva']['%'.$produit->getTva()->getValeur()]))
-                $commande['tva']['%'.$produit->getTva()->getValeur()] = round($prixTTC-$prixHT,2);
+                $commande['tva']['%'.$produit->getTva()->getValeur()] = round(($prixTTC-$prixHT),2);
             else
                 $commande['tva']['%'.$produit->getTva()->getValeur()] += round($prixTTC-$prixHT,2);
             
             $commande['produits'][$produit->getId()]=array('reference'=>$produit->getNom(),
                                                             'quantite'=> $panier[$produit->getId()],
                                                              'prixU'=> round($produit->getPrix(),2),
-                                                             'prixTHT'=>round((($produit->getPrix()*$panier[$produit->getId()])),2),
-                                                            );
+                                                              'prixTTC' => round($produit->getPrix() * $produit->getTva()->getMultiplication(),2));
+                                                            
         }
            $commande['livraison']= array('prenom' =>$livraison->getPrenom() 
                                          ,'nom' => $livraison->getNom()

@@ -5,9 +5,10 @@
         <title>{% block title %} Site de Vente de Journaux{% endblock %}</title>
         <meta name="description" content="{% block desciption %} {% endblock %}"></meta>
         <meta name="keywords" content="{% block keywords %} {% endblock %}"></meta>
+       <link rel="stylesheet" href="{{asset('css/style.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.css')}}" />
-        <link rel="stylesheet" href="{{asset('css/style.css') }}" />
+      
         <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}" />
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />

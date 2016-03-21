@@ -1,4 +1,12 @@
 
 form:
     path:     /form
-    defaults: { _controller: UtilisateurBundle:Default:testformulaire }
+    defaults: { _controller: UtilisateurBundle:Utilisateur:testformulaire }
+    
+factures:
+    path:     /profile/factures
+    defaults: { _controller: UtilisateurBundle:Utilisateur:factures }
+    
+facturesPDF:
+    path:     /profile/factures/pdf/{id}
+    defaults: { _controller: UtilisateurBundle:Utilisateur:generateFacturePDF }

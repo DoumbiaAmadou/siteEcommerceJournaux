@@ -7,7 +7,20 @@
  *
  * Designed and built with all the love in the world @twitter by @mdo and @fat.
  */
-
+.fade {
+  opacity: 0;
+  -webkit-transition: opacity 1.0s linear;
+  -moz-transition: opacity 1.0s linear;
+  -o-transition: opacity 1.0s linear;
+  transition: opacity 1.0s linear;
+}
+.fade.in {
+  opacity: 1;
+  -webkit-transition: opacity 3.0s linear;
+  -moz-transition: opacity 3.0s linear;
+  -o-transition: opacity 3.0s linear;
+  transition: opacity 3.0s linear;
+}
 .clearfix {
   *zoom: 1;
 }

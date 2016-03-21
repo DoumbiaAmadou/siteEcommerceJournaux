@@ -4,6 +4,9 @@ parameters:
 #    parameter_name: value
 
 services:
+    setNewReference  : 
+        class : journalBundle\Services\GetReference
+        arguments : [@security.context , @doctrine.orm.entity_manager]
     tva:
         class: journalBundle\Twig\Extension\TvaExtension
         tags:

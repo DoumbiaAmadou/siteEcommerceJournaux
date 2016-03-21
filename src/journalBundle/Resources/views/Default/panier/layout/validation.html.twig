@@ -30,7 +30,7 @@
                             <td>{{produit.reference}}</td>
                             <td>{{produit.quantite }}    </td>
                             <td>{{ produit.prixU |number_format(2, ',', ' ')}} {{ devise }}</td>
-                            <td>{{ produit.prixTHT |number_format(2, ',', ' ')}} {#|tva(produit.tva.multiplication) #}   {{ devise }}</td>
+                            <td>{{ produit.prixU*produit.quantite |number_format(2, ',', ' ')}} {#|tva(produit.tva.multiplication) #}   {{ devise }}</td>
                         
                        
                         </tr>
@@ -74,8 +74,12 @@
                     </dl>
                 </div>
                 <div class="clearfix"></div>
-                <a href="#" class="btn btn-success pull-right">Payer</a>
-          
+                <form action="{{path('validationCommande',{'id': Commande.id})}}" methd="POST" >
+                <input name="token" type="hidden" value="{{Commande.commande.token}}" />
+                <input name="prix" type="hidden" value="{{Commande.commande.totalTTC}}" />
+                <input name="date" type="hidden" value="{{Commande.date|date('dmyhms')}}" />
+                <button href="#" class="btn btn-success pull-right" type="submit">Payer</button>
+                </form>
             <a href="{{path('livraison')}}" class="btn btn-primary">retour</a>
             </div>
 

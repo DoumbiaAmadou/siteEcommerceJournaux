@@ -6,4 +6,7 @@ routingPanier:
 routingProduits:
     resource: "@journalBundle/Resources/config/rooting/routingProduits.yml"
     prefix: /
-    
+ 
+routingCommande:
+    resource: "@journalBundle/Resources/config/rooting/routingCommandes.yml"
+    prefix: /

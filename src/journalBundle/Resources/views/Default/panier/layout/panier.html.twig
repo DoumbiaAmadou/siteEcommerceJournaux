@@ -16,11 +16,13 @@
 
             </div>
             <div class="span9">
-                 {% for flashMessage in app.session.flashbag.get('succes') %}
-                            <div class="alert alert-success">
-                                {{flashMessage}}
-                            </div>    
-                        {%endfor %}
+                {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
                 <h2>Votre panier</h2>
 
                 <table class="table table-striped table-hover">

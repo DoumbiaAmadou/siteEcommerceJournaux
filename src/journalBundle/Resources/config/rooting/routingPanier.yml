@@ -18,4 +18,7 @@ supprimer :
 livraisaonSuppressionAdresse :
     path:     /livraisaonSuppressionAdresse/{id}
     defaults: { _controller: journalBundle:Panier:livraisaonSuppressionAdresse }
-    
+
+validationCommande :
+    path:     /validationpayement/{id}
+    defaults: { _controller: journalBundle:Panier:validationPayement }
