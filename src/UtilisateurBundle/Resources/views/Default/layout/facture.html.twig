@@ -1,0 +1,54 @@
+{% extends "::layout/layout.html.twig" %}
+{%block body %}
+    <div class="container">
+        <div class="row">
+            <div class="span3">
+                {% include ':modules/navigation.html.twig' %}
+                    {% include 'UtilisateurBundle:Default/modulesUsed/utilisateursConnecte.html.twig' %}  
+                {% render (controller('journalBundle:Panier:menu')) %}
+            </div>
+
+            <div class="span9">
+                  {% for label, flashes in app.session.flashbag.all %}
+                    {% for flash in flashes %}
+                        <div class="alert alert-{{ label }}">
+                            {{ flash }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <h2>Factures</h2>
+                <form>
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th>Références</th>
+                                <th>Date</th>
+                                <th style="text-align: right;">Prix TTC</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {%if factures|length == 0 %}
+                            <tr>
+                                <td colspan="4"><center>Aucune facture actuellement.</center> </td>
+                               
+                            </tr>
+                       {%else %}
+                           {%for facture in factures %}
+                           <tr>
+                                <td> REF : {{facture.reference}}</a></td>
+                                <td>{{facture.date |date('d/m/y H:i')}}</td>
+                                <td  style="text-align: right;">{{facture.commande.totalTTC |number_format(2, ',', ' ')}} {{devise}} </td>
+                                <td><a href="{{path('facturesPDF' , {'id' : facture.id })}}" target ="_blank"><i class="icon-print"></i></a></td>
+                            </tr>
+                            {%endfor%}
+                            {% endif%}
+                        </tbody>
+                    </table>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
