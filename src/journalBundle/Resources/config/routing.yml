@@ -1,12 +1,16 @@
 routingPanier:
-    resource: "@journalBundle/Resources/config/rooting/routingPanier.yml"
+    resource: "@journalBundle/Resources/config/routing/routingPanier.yml"
     prefix: /
 
     
 routingProduits:
-    resource: "@journalBundle/Resources/config/rooting/routingProduits.yml"
+    resource: "@journalBundle/Resources/config/routing/routingProduits.yml"
     prefix: /
  
 routingCommande:
-    resource: "@journalBundle/Resources/config/rooting/routingCommandes.yml"
+    resource: "@journalBundle/Resources/config/routing/routingCommandes.yml"
     prefix: /
+
+routingAdminProduits:
+    resource: "@journalBundle/Resources/config/AdminRouting/produits.yml"
+    prefix: /admin/Produits/

@@ -22,12 +22,12 @@ class Produits
     private $id;
 
    /**
-     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\categorie",cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\categorie",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $categorie;
     /**
-     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\Tva",cascade={"persist","remove"})
+     * @ORM\ManyToOne(targetEntity="journalBundle\Entity\Tva",cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $tva;
