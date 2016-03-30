@@ -8,9 +8,9 @@ use Doctrine\ORM\Mapping as ORM;
  * categorie
  *
  * @ORM\Table(name="categorie")
- * @ORM\Entity(repositoryClass="journalBundle\Repository\categorieRepository")
+ * @ORM\Entity(repositoryClass="journalBundle\Repository\CategoriesRepository")
  */
-class categorie
+class Categories
 {
     /**
      * @var int

@@ -3,26 +3,44 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/journal/src/PagesBundle/Resources/config/services.yml</file>
-            <file>file:/C:/wamp64/www/journal/src/PagesBundle/Resources/views/Administration/pages/layout/index.html.twig</file>
-            <file>file:/C:/wamp64/www/journal/app/config/security.yml</file>
-            <file>file:/C:/wamp64/www/journal/app/SymfonyRequirements.php</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Entity/Utilisateur.php</file>
+            <file>file:/C:/wamp64/www/journal/app/Resources/views/modules/navigationAdmin.html.twig</file>
             <file>file:/C:/wamp64/www/journal/app/config/config.yml</file>
-            <file>file:/C:/wamp64/www/journal/app/Resources/views/layout/layoutAdmin.html.twig</file>
-            <file>file:/C:/wamp64/www/journal/app/config/parameters.yml.dist</file>
-            <file>file:/C:/wamp64/www/journal/src/PagesBundle/Resources/translations/messages.fr.yml</file>
-            <file>file:/C:/wamp64/www/journal/app/Resources/FOSuserBundle/views/Group/edit_content.html.twig</file>
-            <file>file:/C:/wamp64/www/journal/app/config/services.yml</file>
-            <file>file:/C:/wamp64/www/journal/app/Resources/FOSuserBundle/views/Registration/checkEmail.html.twig</file>
-            <file>file:/C:/wamp64/www/journal/app/config/routing.yml</file>
-            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/ProduitsController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/CommandesAdminController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/CategoriesAdminController.php</file>
+            <file>file:/C:/wamp64/www/journal/app/config/parameters.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/config/routing.yml</file>
             <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Default/produits/layout/produits.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/config/config_dev.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/routing.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/ProduitsAdminController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/views/Administration/Utilisateur/layout/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/CategoriesController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/PagesBundle/Resources/views/Administration/pages/layout/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/adminRouting/commandes.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Entity/UtilisateursAdresses.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Administration/commandes/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/config/security.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Administration/categories/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/Resources/views/layout/layoutAdmin.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Administration/produits/index.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/views/Administration/Utilisateur/layout/facture.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Default/produits/layout/produitsolo.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/config/config_prod.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/config/services.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Controller/UtilisateurController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/PagesBundle/Controller/PagesAdminController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Administration/categories/edit.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/routing/routingCommandes.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/views/Administration/Utilisateur/layout/adresse.html.twig</file>
             <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/CommandesController.php</file>
-            <file>file:/C:/wamp64/www/journal/composer.json</file>
-            <file>file:/C:/wamp64/www/journal/app/AppKernel.php</file>
-            <file>file:/C:/wamp64/www/journal/app/autoload.php</file>
-            <file>file:/C:/wamp64/www/journal/app/config/routing_dev.yml</file>
-            <file>file:/C:/wamp64/www/journal/app/Resources/FOSuserBundle/views/ChangePassword/changePassword_content.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/app/Resources/views/layout/layout.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/views/Default/swiftlayout/validation.html.twig</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Resources/config/routing/utilisateurs.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/UtilisateurBundle/Controller/UtilisateurAdminController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Controller/PanierController.php</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Resources/config/services.yml</file>
+            <file>file:/C:/wamp64/www/journal/src/journalBundle/Services/GetFacture.php</file>
         </group>
     </open-files>
 </project-private>

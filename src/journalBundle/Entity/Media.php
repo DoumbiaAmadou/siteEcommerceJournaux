@@ -25,10 +25,10 @@ class Media
 
 
     /**
-     * @ORM\Column(name="name",type="string",length=255)
+     * @ORM\Column(name="alt",type="string",length=255)
      * @Assert\NotBlank
      */
-    public $name ;
+    public $alt ;
     
     
     /**
@@ -126,9 +126,9 @@ class Media
      * @param string $path
      * @return Media
      */
-    public function getName()
+    public function getAlt()
     {
-       return $this->name;
+       return $this->alt;
     }
 
     /**

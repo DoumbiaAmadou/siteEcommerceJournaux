@@ -6,14 +6,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use journalBundle\Form\RechercheType;
-use journalBundle\Entity\categorie;
+use journalBundle\Entity\Categories;
 
 class ProduitsController extends Controller {
 
     /**
      * @Route("/", name="homepage")
      */
-    public function presentationAction(categorie $categorie = null) {
+    public function presentationAction(Categories $categorie = null) {
         //var_dump($categorie);
         // die();
         $em = $this->getDoctrine()->getManager();
@@ -27,8 +27,8 @@ class ProduitsController extends Controller {
             $panier = $session->get('panier');
         } else
             $panier = false;
-        if (!$produitsFind)
-            throw $this->createNotFoundException("Cette pages n'existe pas");
+//        if (!$produitsFind)
+//            throw $this->createNotFoundException("Cette pages n'existe pas");
 
 
         $produits = $this->get('knp_paginator')->paginate($produitsFind, $this->get('request')->query->get('page', 1), 6);
@@ -77,7 +77,9 @@ class ProduitsController extends Controller {
             $produits = $em->getRepository('journalBundle:Produits')->recherche($form['recherche']->getData());
         } else
             throw $this->createNotFoundException("Cette page n'existe pas disponible!");
-        return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produits));
+           $produitsfind = $this->get('knp_paginator')->paginate($produits, $this->get('request')->query->get('page', 1), 6);
+
+        return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produitsfind));
     }
 
 }

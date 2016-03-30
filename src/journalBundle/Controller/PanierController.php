@@ -194,7 +194,19 @@ class PanierController extends Controller {
         $session->remove('livraison');
         $session->remove('facturation');
         $this->get('session')->getFlashBag()->add('success', 'Votre commande est validée avec succès!');
-
+        
+        //mail de confirmation
+        $message = \Swift_Message::newInstance()
+                ->setSubject("validation de votre commande"+$commande->getReference())
+                ->setFrom(array('sendtosandbox@gmail.com'=> 'Site de Vente de Journaux'))
+                ->setTo($commande->getUtilisateur()->getEmailcanonical())
+                ->setCharset('utf-8')
+                ->setContentType('text/html')
+                ->setBody($this->renderView('journalBundle:Default/swiftlayout/validation.html.twig',array('utilisateur'=>$commande->getUtilisateur())));
+        $this->get('mailer')->send($message);
+       dump($commande->getUtilisateur()->getEmailcanonical());
+       dump($message);
+      // die();
         return $this->redirect($this->generateUrl('factures'));
     }
 

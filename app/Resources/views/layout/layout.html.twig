@@ -5,17 +5,17 @@
         <title>{% block title %} Site de Vente de Journaux{% endblock %}</title>
         <meta name="description" content="{% block desciption %} {% endblock %}"></meta>
         <meta name="keywords" content="{% block keywords %} {% endblock %}"></meta>
-       <link rel="stylesheet" href="{{asset('css/style.css') }}" />
+        <link rel="stylesheet" href="{{asset('css/style.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap.css') }}" />
         <link rel="stylesheet" href="{{asset('css/bootstrap-responsive.css')}}" />
-      
+
         <link rel="stylesheet" href="{{asset('css/font-awesome.css')}}" />
     {% block stylesheets %}{% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
 <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar  navbar-fixed-top">
         <div class="navbar-inner">
             <div class="container">
                 <button class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse" type="button">
@@ -23,19 +23,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="{{path('produits')}}">Site de Vente de journaux</a>
+                <ul class="nav nav-tabs">
+                    <li role="presentation" ><a class="brand" href="{{path('produits')}}">Accueil</a></li>
+                    {% if is_granted('ROLE_ADMIN') %}
+                      <li role="presentation" ><a class="brand" href="{{path('adminProduits_index')}}"> Administration </a></li>
+
+                    {%endif%}
+                </ul>
+                
                 <div class="nav-collapse collapse">
                     {% render(controller('journalBundle:Produits:recherche'))%}
-                    
+
                 </div>
             </div>
         </div>
     </div>  
 
-{% block body %}
-{% endblock %}
+    {% block body %}
+    {% endblock %}
 
-<hr />
+    <hr />
 </body>
 <footer id="footer" class="vspace20">
     <div class="container">
@@ -44,7 +51,7 @@
                 <h4>Informations</h4>
                 <ul class="nav nav-stacked">
                     {% render(controller('PagesBundle:Pages:menu')) %}
-                   
+
                 </ul>
             </div> 
 

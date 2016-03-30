@@ -3,14 +3,14 @@
 namespace journalBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-
-class CategorieController extends Controller {
+use Symfony\Component\HttpFoundation\Request;
+class CategoriesController extends Controller {
 
     public function menuAction() {
         $em = $this->getDoctrine()->getManager();
-        $pages = $em->getRepository('journalBundle:categorie')->findAll();
+        $pages = $em->getRepository('journalBundle:Categories')->findAll();
 
-        return $this->render('journalBundle:Default/categorie/modulesUsed/menu.html.twig', array('categories' => $pages));
+        return $this->render('journalBundle:Default/categories/modulesUsed/menu.html.twig', array('categories' => $pages));
     }
 
     public function pagesAction($id) {

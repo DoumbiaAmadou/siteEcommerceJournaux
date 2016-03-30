@@ -6175,3 +6175,6 @@ a.badge:focus {
 .affix {
   position: fixed;
 }
+.money, .number {
+    text-align: right !important;
+}
