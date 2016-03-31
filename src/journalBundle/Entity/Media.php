@@ -28,13 +28,13 @@ class Media
      * @ORM\Column(name="alt",type="string",length=255)
      * @Assert\NotBlank
      */
-    public $alt ;
+    private $alt ;
     
     
     /**
      * @ORM\Column(type="text", length=255, nullable=true)
      */
-    public $path ; 
+    private $path ; 
 
     
     public $file;

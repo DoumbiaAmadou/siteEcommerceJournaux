@@ -33,7 +33,7 @@ class ProduitsController extends Controller {
 
         $produits = $this->get('knp_paginator')->paginate($produitsFind, $this->get('request')->query->get('page', 1), 6);
 
-        return $this->render('journalBundle:Default/Produits/layout/produits.html.twig', array('Produits' => $produits, 'panier' => $panier));
+        return $this->render('journalBundle:Default/produits/layout/produits.html.twig', array('Produits' => $produits, 'panier' => $panier));
     }
 
     public function produitAction($id) {
@@ -48,7 +48,7 @@ class ProduitsController extends Controller {
             throw $this->createNotFoundException("Cette pages n'existe pas");
 
         // replace this example code with whatever you need
-        return $this->render('journalBundle:Default/Produits/layout/produitsolo.html.twig', array('Produit' => $produits, 'panier' => $panier));
+        return $this->render('journalBundle:Default/produits/layout/produitsolo.html.twig', array('Produit' => $produits, 'panier' => $panier));
     }
 
     /*  public function categorieAction($categorie)

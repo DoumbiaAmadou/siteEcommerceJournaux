@@ -31,7 +31,12 @@ class UtilisateurAdminController extends Controller {
    public function factureAction($id){
        $em = $this->getDoctrine()->getEntityManager(); 
        $facture = $em->getRepository('journalBundle:Commandes')->find($id);
-       return $this->container->get('getFacture')->facture($facture);
-   }
+        $html2pdf= $this->container->get('getFacture')->facture($facture);
+        $html2pdf->Output('Facture.pdf');
+       $response = new Response();
+      $response->headers->set('Content-type', 'application/pdf');
+
+        return  $this->container->get('getFacture')->facture($facture);
+    }
      
 }

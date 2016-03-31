@@ -204,8 +204,8 @@ class PanierController extends Controller {
                 ->setContentType('text/html')
                 ->setBody($this->renderView('journalBundle:Default/swiftlayout/validation.html.twig',array('utilisateur'=>$commande->getUtilisateur())));
         $this->get('mailer')->send($message);
-       dump($commande->getUtilisateur()->getEmailcanonical());
-       dump($message);
+//       dump($commande->getUtilisateur()->getEmailcanonical());
+//       dump($message);
       // die();
         return $this->redirect($this->generateUrl('factures'));
     }

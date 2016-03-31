@@ -32,7 +32,12 @@ class CommandesAdminController extends Controller {
             $this->get('session')->getFlashBag()->add('errors', 'Cette Facture n\'existe pas !');
             return $this->redirect($this->generateUrl('factures'));
         }
-        return $this->container->get('getFacture')->facture($facture);
+         $html2pdf=$this->container->get('getFacture')->facture($facture);
+        $html2pdf->Output('Facture.pdf');
+        $response = new Response();
+        $response->headers->set('Content-type', 'application/pdf');
+
+        return $response;
     }
 
 }
