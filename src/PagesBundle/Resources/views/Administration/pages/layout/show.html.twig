@@ -1,0 +1,32 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+{% block body %}
+    <h1>pages</h1>
+
+    <table>
+        <tbody>
+           
+            <tr>
+                <th>Titre</th>
+                <td>{{ page.titre }}</td>
+            </tr>
+            <tr>
+                <th>Contenu</th>
+                <td>{{ page.contenu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('adminPages_index') }}">retour à la liste</a>
+        </li>
+        <li>
+            <a href="{{ path('adminPages_edit', { 'id': page.id }) }}">modifier</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

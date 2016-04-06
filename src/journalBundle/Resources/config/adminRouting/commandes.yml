@@ -1,0 +1,9 @@
+AdminCommande_index:
+    path:     /
+    defaults: { _controller: "journalBundle:CommandesAdmin:commandes" }
+    methods:  GET
+
+AdminCommande_showFacture:
+    path:     /{id}/show
+    defaults: { _controller: "journalBundle:CommandesAdmin:showFacture" }
+    methods:  GET

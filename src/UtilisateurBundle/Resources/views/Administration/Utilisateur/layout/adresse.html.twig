@@ -1,0 +1,54 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+
+
+{% block body %}
+    <h1>Liste d'adresses </h1>
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Numero de telephone </th>
+                <th>Adresse</th>
+              
+            </tr>
+        </thead>
+        <tbody>
+            {% for adresse in utilisateur.utilisateursAdresses %}
+               
+               <tr>
+                    <td>{{ adresse.nom}} </td>
+                    <td> {{ adresse.prenom }}</td>
+                    <td> {{ adresse.telephone |split('', 2)|join('.') }}</td>
+                    <td> {{ adresse.adresse }} {{ adresse.ville }} {{ adresse.cp }} {{ adresse.pays }} {{ adresse.complement}}
+                    </td>
+                   
+                </tr>
+             {% endfor %}
+            {# % for commande in commandes %}
+               
+                <tr>
+                    <td>{{ commande.date|date('d/m/Y H:i:s') }}</td>
+                    <td>REF:{{ commande.reference}}</td>
+                    <td>{{ commande.utilisateur.username}}</td>
+                    <td class="money">{{commande.commande.totalTTC}}{{devise}}</td>
+                    <td> {{commande.commande.livraison.adresse}} {{commande.commande.livraison.ville}}
+                      
+                     <td>{{commande.commande.livraison.nom}} {{commande.commande.livraison.prenom}}</td>
+                        
+                     <td>{{commande.commande.livraison.telephone}}</td>
+                    </td>
+                    <td>
+                        <a href="{{ path('AdminCommande_showFacture',{ 'id': commande.id })}}"><i class="icon-eye-open"></i></a>&nbsp;&nbsp;&nbsp;
+                    </td>
+                </tr>
+            {% endfor %#}
+        </tbody>
+    </table>
+
+   
+    <div class="pagination">
+        {#{ knp_pagination_render(produits) }#}
+    </div>
+{% endblock %}

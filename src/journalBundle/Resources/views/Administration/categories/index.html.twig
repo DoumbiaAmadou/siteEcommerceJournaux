@@ -1,0 +1,38 @@
+{% extends '::layout/layoutAdmin.html.twig' %}
+
+{% block body %}
+    <h1>Categorie list</h1>
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+               
+                <th>Nom</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie in categories %}
+            <tr>
+               
+                <td><a href="{{ path('AdminCategorie_show', { 'id': categorie.id }) }}">{{ categorie.nom }}</a></td>
+                <td> 
+                    <a href="{{ path('AdminCategorie_show', { 'id': categorie.id }) }}"><i class="icon-eye-open"></i></a>&nbsp;&nbsp;&nbsp;
+                    <a href="{{ path('AdminCategorie_edit', { 'id': categorie.id }) }}"><i class="icon-edit"></i></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('AdminCategorie_new') }}">Create a new entry</a>
+        </li>
+    </ul>
+    <div class="pagination">
+    {{ knp_pagination_render(categories) }}
+    </div>
+            
+            
+{% endblock %}
