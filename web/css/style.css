@@ -3,3 +3,11 @@ body {
     padding-top: 60px;
 }
 
+.loading{
+    float: right;
+    display: block ; 
+    width: 30px; 
+    height: 30px; 
+    margin-right: 110px;
+    background: url('../img/ajax-loader.gif')
+}

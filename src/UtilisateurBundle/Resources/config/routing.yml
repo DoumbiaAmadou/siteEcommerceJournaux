@@ -1,4 +1,6 @@
-
+routingAdminUtilisateurs:
+    resource: "@UtilisateurBundle/Resources/config/routing/utilisateurs.yml"
+    prefix: /admin/utilisateurs/
 form:
     path:     /form
     defaults: { _controller: UtilisateurBundle:Utilisateur:testformulaire }
@@ -11,6 +13,6 @@ facturesPDF:
     path:     /profile/factures/pdf/{id}
     defaults: { _controller: UtilisateurBundle:Utilisateur:generateFacturePDF }
 
-routingAdminUtilisateurs:
-    resource: "@UtilisateurBundle/Resources/config/routing/utilisateurs.yml"
-    prefix: /admin/utilisateurs/
+villes : 
+    path : /villes/{cp}
+    defaults : { _controller : UtilisateurBundle:Utilisateur:villes}

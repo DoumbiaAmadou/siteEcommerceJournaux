@@ -4,8 +4,11 @@ namespace UtilisateurBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use journalBundle\Entity\Produits;
+
 use UtilisateurBundle\Form\TestType;
 use \Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+
 
 class UtilisateurController extends Controller {
 
@@ -25,7 +28,8 @@ class UtilisateurController extends Controller {
     public function generateFacturePDFAction($id) {
 
         $em = $this->getDoctrine()->getEntityManager();
-        $facture = $em->getRepository('journalBundle:Commandes')->findOneBy(array('utilisateur' => $this->getUser(),
+        $facture = $em->getRepository('journalBundle:Commandes')->findOneBy(
+                array('utilisateur' => $this->getUser(),
             'valider' => 1,
             'id' => $id));
 
@@ -40,5 +44,21 @@ class UtilisateurController extends Controller {
 
         return $response;
     }
-
+    public function villesAction($cp){
+       $em = $this->getDoctrine()->getEntityManager();
+//         $villes = $em->getRepository('journalBundle:Commandes')->byFacture($this->getUser());
+        $villes = $em->getRepository('UtilisateurBundle:Villes')->getCp($cp); 
+//                array("villeCodePostal" => $cp)
+//                );
+      
+        $res = new JsonResponse(); 
+       
+        if ($villes) {
+               $res->setData(array('villes'=> $villes->getVilleNom()));
+        } else {
+           $res->setData(array('villes'=> ''));
+        }
+        return $res; 
+    }
 }
+
